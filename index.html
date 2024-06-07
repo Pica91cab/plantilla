@@ -1,0 +1,58 @@
+<section id="location" class="section">
+    <h2>Encuéntranos</h2>
+    <div id="map" style="width:100%;height:400px;"></div>
+    <p>Dirección: Calle Falsa 123, Playa del Carmen, Quintana Roo, México</p>
+    <p>Teléfono: +52 123 456 7890</p>
+</section>
+
+<footer>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank" class="fab fa-facebook-f fa-2x"></a>
+        <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram fa-2x"></a>
+        <a href="https://wa.me/525512345678" class="fab fa-whatsapp fa-2x" target="_blank"></a>
+    </div>
+    <p>&copy; 2024 Dental Advance. Todos los derechos reservados.</p>
+    <a href="#top" class="back-to-top">Volver al tope</a>
+</footer>
+
+<a href="https://wa.me/525512345678" id="whatsapp-icon" target="_blank" class="whatsapp-button">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    function initMap() {
+        var location = {lat: 20.6295586, lng: -87.0738851};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: location
+        });
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+
+    // Código del slideshow
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+
+    setInterval(() => {
+        plusSlides(1);
+    }, 3000);
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
